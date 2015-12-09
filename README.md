@@ -25,10 +25,10 @@
 
   项目的文件分别代表模拟最简react的步骤
   
-  * createElement 创建virtual DOM
-  * diff 比较virtual DOM差异
-  * patch 更具相应差异调整
-  * update virtual DOM 差异反馈到真实DOM
+  * `vd` 创建virtual DOM
+  * `diff` 比较virtual DOM差异
+  * `patch` 更具相应差异调整
+  * `update` virtual DOM 差异反馈到真实DOM
   
   
   
