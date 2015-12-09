@@ -1,6 +1,6 @@
-## 通过模拟最简React学习virtual DOM和diff
+# 通过模拟最简React学习virtual DOM和diff
 
-### 前言
+## 前言
 
   更改视图时，更改真实DOM是非常消耗性能的，真实DOM对象非常庞大，稍不留意就造成整棵DOM树的repaint及reflow。
 再者，移动端的页面本身流畅性就被诟病，因此DOM的改变就需要更谨慎。
@@ -21,7 +21,7 @@
   
   2. 视图更新时，通过对新旧virtual DOM 树的差异计算，最终获得新的virtual DOM树，利用这棵js层面算得的树去对真实DOM树做调整，
 
-### 模拟
+## 模拟
 
   项目的文件分别代表模拟最简react的步骤
   
