@@ -31,7 +31,7 @@ function ReactDOMComponent(element){
     //存下当前的element对象引用
     this._currentElement = element;
     this._mountId = null;
-    this._rootNodeID = null;
+    this._rootNodeId = null;
 }
 
 // Text只输出自身的字符串
@@ -46,12 +46,12 @@ ReactDOMTextComponent.prototype.mountComponent = function(rootId){
 
 // ReactDOMComponent.js:416,TEXT 一样，选一个作参考即可,省略了owner,context的处理
 ReactDOMComponent.prototype.mountComponent = function(rootId){
-	this._rootNodeID = rootId;
+	this._rootNodeId = rootId;
 	var tagOpen = "<" + this._currentElement.type + " ";
 	var tagClose = "</" + this._currentElement.type + ">";
 
 	// 模拟0.0.2.1那种根据层级生成的唯一id
-	var elementString = tagOpen + 'data-react-id="' + this._rootNodeID + '"';
+	var elementString = tagOpen + 'data-react-id="' + this._rootNodeId + '"';
 
 	var props = this._currentElement.props;
 	for(var p in props){		
@@ -108,7 +108,6 @@ var React = {
 	render:function(element,container){		
 		var instance = instantiateReactComponent(element);
 		var elementString = instance.mountComponent(this.realRootId++);
-		console.log("输出的结构:",elementString);
 		container.innerHTML = elementString;
 	}
 };

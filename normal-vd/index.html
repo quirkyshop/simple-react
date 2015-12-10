@@ -9,16 +9,41 @@
   <body>
 	
 	<div id="ctx"></div>
-	<script type="text/javascript" src="vd.js"></script>
+	<script type="text/javascript" src="normal-vd.js"></script>
 	<script>	
 
 	// 真实需要挂载的DOM
 	var ctx = document.getElementById('ctx');
 
-	// 虚拟DOM
-	var child = React.createElement('li', {}, 'Text Content');
-	var root = React.createElement('ul', { className: 'my-list' }, child);
-	React.render(root,ctx);
+	// class虚拟DOM,基本组件
+	var List = React.createClass({
+		getInitialState:function(){
+			return {
+				text:'初始值'
+			};
+		},
+
+		componentWillMount:function(){
+			console.log('before mount');
+		},
+
+		componentDidMount:function(){
+			console.log('already mount');
+		},
+
+		// 这里没有用jsx语法
+		render:function(){
+			var child = React.createElement('li', {}, 'Text Content');
+			var root = React.createElement('ul', {}, [child,child,child]);
+			var wrap = React.createElement('div', { className: 'my-list-wrap' }, root);
+			return wrap;
+		}
+	});
+
+	// 这里可以饮用列表基本组件，作为文章List
+	var postsList = React.createElement(List,{className:'posts'},[]);
+
+	React.render(postsList,ctx);
 	</script>
   </body>
 </html>
