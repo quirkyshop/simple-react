@@ -1,0 +1,24 @@
+<html>
+  <head>
+  	<title>最简React</title>	
+  	<meta charset="utf-8">
+	<style>
+	</style>
+  </head>
+  
+  <body>
+	
+	<div id="ctx"></div>
+	<script type="text/javascript" src="vd.js"></script>
+	<script>	
+
+	// 真实需要挂载的DOM
+	var ctx = document.getElementById('ctx');
+
+	// 虚拟DOM
+	var child = React.createElement('li', {}, 'Text Content');
+	var root = React.createElement('ul', { className: 'my-list' }, child);
+	React.render(root,ctx);
+	</script>
+  </body>
+</html>
